@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Form, ListGroup, Row } from 'react-bootstrap';
+import { Card, Col, Form, Row } from 'react-bootstrap';
 import Loader from '../../../components/common/Loader';
 import axiosInstance from '../../../utils/axiosInstance';
 import { useDebouncedCallback } from '../../../utils/debounce';
@@ -80,7 +81,6 @@ export default function ArtistList() {
             })
           ) : null}
         </Row>
-        <ListGroup variant='flush'></ListGroup>
       </div>
     </div>
   );

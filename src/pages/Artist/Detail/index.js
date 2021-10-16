@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import {
   Card,
@@ -40,7 +41,8 @@ export default function ArstistDetails({ match }) {
   };
   const getDurations = (duration) => {
     const min = Math.floor(duration / 60);
-    const sec = duration - min * 60;
+    let sec = duration - min * 60;
+    if((sec.toString().split('')).length === 1) sec = `0${sec}`
     return `${min}:${sec}`;
   };
 
@@ -97,8 +99,6 @@ export default function ArstistDetails({ match }) {
                     return (
                       <Col
                         key={id}
-                        role='button'
-                        onClick={() => history.push(`/arstist/${id}`)}
                       >
                         <Card className='artist-card'>
                           <Card.Img
@@ -109,7 +109,7 @@ export default function ArstistDetails({ match }) {
                           />
                           <Card.Body>
                             <h6>{title}</h6>
-                            <p>{release_date}</p>
+                            <p>{release_date?.split('-')[0]} </p>
                           </Card.Body>
                         </Card>
                       </Col>
@@ -122,7 +122,6 @@ export default function ArstistDetails({ match }) {
             </>
           )}
         </Row>
-        <ListGroup variant='flush'></ListGroup>
       </div>
     </div>
   );

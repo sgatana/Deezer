@@ -13,6 +13,8 @@ jobs:
         node-version: [14.x]
     steps:
       - uses: actions/checkout@v2
+      - name: Install packages
+        run: yarn
       - name: Run build
         run: yarn build
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
