@@ -1,4 +1,5 @@
 {
+  "proxy": "http://localhost:5000",
   "name": "deezer",
   "version": "0.1.0",
   "private": true,
@@ -19,8 +20,9 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "concurrently \"node server/index.js\" \"react-scripts start\"",
-    "start:server": "nodemon server/index.js",
+    "start": "node index.js",
+    "start:dev": "concurrently \"nodemon index.js\" \"react-scripts start\"",
+    "start:server": "nodemon index.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
